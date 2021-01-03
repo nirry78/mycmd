@@ -1,0 +1,26 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.4.0
+
+jobs:
+  linux-gcc:
+    machine:
+      image: ubuntu-2004:202010-01
+    environment:
+      CC: gcc-9
+      CXX: g++-9
+    steps:
+      - checkout
+      - run:
+          name: Build software
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y ninja-build git unzip cmake g++-9 libstdc++-9-dev
+      - run: /bin/bash mkdir -p output && cd output && cmake .. && make -j10
+
+workflows:
+  version: 2
+  run-all:
+    jobs:
+      - linux-gcc
