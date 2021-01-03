@@ -41,3 +41,4 @@ workflows:
   run-all:
     jobs:
       - linux-gcc
+      - windows-msvc
