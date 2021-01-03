@@ -17,7 +17,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y ninja-build git unzip cmake g++-9 libstdc++-9-dev
-      - run: /bin/bash mkdir -p output && cd output && cmake .. && make -j10
+      - run: /bin/bash ./.ci/build-project.sh
 
 workflows:
   version: 2
