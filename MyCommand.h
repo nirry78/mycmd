@@ -13,8 +13,9 @@ class MyCommand
 
         char*              CompletionGenerator(const char* text, int state);
         static char**      Completion(const char* text, int start, int end);
+        std::string        FindCommand(const std::vector<Token>& tokens, int cursor);
         static char*       StaticCompletionGenerator(const char* text, int state);
-        std::vector<Token> TokenizeLine(const std::string& buf); 
+        std::vector<Token> TokenizeLine(const std::string& buf);
 
     public:
                 MyCommand();
