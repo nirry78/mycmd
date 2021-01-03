@@ -2,7 +2,9 @@
 
 if [[ ! -d output ]]; then
     mkdir -p output
-    cd output && cmake ..
+    pushd output
+    cmake ..
+    popd
 fi
 
 cd output && make -j10
